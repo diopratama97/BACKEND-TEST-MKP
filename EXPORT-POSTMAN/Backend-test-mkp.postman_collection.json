@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "8ea31108-1bef-4ed1-a44d-2916f8eb81c3",
+		"name": "Backend-test-mkp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7203814",
+		"_collection_link": "https://solar-zodiac-567919.postman.co/workspace/New-Team-Workspace~cd69079d-4f61-41d9-a994-7b676234e9dd/collection/7203814-8ea31108-1bef-4ed1-a44d-2916f8eb81c3?action=share&source=collection_link&creator=7203814"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "DIO",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "SEMARANG",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ADMIN",
+							"type": "text"
+						},
+						{
+							"key": "telp",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "dio2@mail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:80/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "dio@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:80/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpb0BtYWlsLmNvbSIsImV4cCI6MTcxMTQ2NjkxOX0.prDjNaFBRoq6oS1c-713uJ0MxdR5ALn94ORbrhaJ_kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Mencari kunci part 2",
+							"type": "text"
+						},
+						{
+							"key": "bioskop_id",
+							"value": "69339f2b-ec71-4da6-a0fd-a85269057d18",
+							"type": "text"
+						},
+						{
+							"key": "show_date",
+							"value": "2024-09-09",
+							"type": "text"
+						},
+						{
+							"key": "show_time",
+							"value": "12.00",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "35000",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "COMINGSOON",
+							"type": "text"
+						},
+						{
+							"key": "url_image",
+							"value": "storage.image.com",
+							"type": "text"
+						},
+						{
+							"key": "url_trailer",
+							"value": "storage.trailer.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:80/show",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpb0BtYWlsLmNvbSIsImV4cCI6MTcxMTQ2NjkxOX0.prDjNaFBRoq6oS1c-713uJ0MxdR5ALn94ORbrhaJ_kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:80/show",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpb0BtYWlsLmNvbSIsImV4cCI6MTcxMTQ2NjkxOX0.prDjNaFBRoq6oS1c-713uJ0MxdR5ALn94ORbrhaJ_kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:80/show/5c954091-e4ea-4215-9702-a724f7b0ef89",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"show",
+						"5c954091-e4ea-4215-9702-a724f7b0ef89"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpb0BtYWlsLmNvbSIsImV4cCI6MTcxMTQ2NjkxOX0.prDjNaFBRoq6oS1c-713uJ0MxdR5ALn94ORbrhaJ_kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:80/show/5c954091-e4ea-4215-9702-a724f7b0ef89",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"show",
+						"5c954091-e4ea-4215-9702-a724f7b0ef89"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRpb0BtYWlsLmNvbSIsImV4cCI6MTcxMTQ2NjkxOX0.prDjNaFBRoq6oS1c-713uJ0MxdR5ALn94ORbrhaJ_kM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "update",
+							"type": "text"
+						},
+						{
+							"key": "bioskop_id",
+							"value": "69339f2b-ec71-4da6-a0fd-a85269057d18",
+							"type": "text"
+						},
+						{
+							"key": "show_time",
+							"value": "20.00",
+							"type": "text"
+						},
+						{
+							"key": "show_date",
+							"value": "2024-09-10",
+							"type": "text"
+						},
+						{
+							"key": "url_image",
+							"value": "asd",
+							"type": "text"
+						},
+						{
+							"key": "url_trailer",
+							"value": "asdad",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "READY",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "20000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:80/show/42f93e0c-a715-4e87-8c8a-d201e07dfad0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"show",
+						"42f93e0c-a715-4e87-8c8a-d201e07dfad0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
