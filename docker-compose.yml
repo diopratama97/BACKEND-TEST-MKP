@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  mysql_db_container:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root-1234
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_db_data_container:/var/lib/mysql
+  postgres:
+    image: postgres:10
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=R00Tpostgres
+      - POSTGRES_DB=backend-test-mkp
+    volumes:
+      - pgdata:/var/lib/postgresql/data:rw
+  adminer_container:
+    image: adminer:latest
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql_db_container
+    ports:
+      - 8080:8080
+
+volumes:
+  mysql_db_data_container:
+  pgdata:
