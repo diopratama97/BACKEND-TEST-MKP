@@ -21,11 +21,9 @@ func Init() *echo.Echo {
 
 	e.GET("/show", controllers.ListShow, middleware.IsAuth)
 	e.POST("/show", controllers.CreateShow, middleware.IsAuth)
-	// e.PUT("/users/:id", controllers.UpdateUsers)
-	// e.DELETE("/users/:id", controllers.DeleteUsers)
-	// e.GET("/users/:id", controllers.DetailUsers)
-
-	e.GET("/generate-hash/:password", controllers.GenerateHashPassword)
+	e.PUT("/show/:id", controllers.UpdateShow, middleware.IsAuth)
+	e.DELETE("/show/:id", controllers.DeleteShow, middleware.IsAuth)
+	e.GET("/show/:id", controllers.DetailShow, middleware.IsAuth)
 
 	return e
 }

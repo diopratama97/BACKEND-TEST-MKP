@@ -41,56 +41,52 @@ func CreateShow(c echo.Context) error {
 	return c.JSON(http.StatusOK, result)
 }
 
-// func UpdateUsers(c echo.Context) error {
-// 	id := c.Param("id")
-// 	// name := c.FormValue("name")
-// 	// address := c.FormValue("address")
-// 	// telp := c.FormValue("telp")
+func UpdateShow(c echo.Context) error {
+	id := c.Param("id")
+	name := c.FormValue("name")
+	bioskop_id := c.FormValue("bioskop_id")
+	show_date := c.FormValue("show_date")
+	show_time := c.FormValue("show_time")
+	price := c.FormValue("price")
+	status := c.FormValue("status")
+	url_image := c.FormValue("url_image")
+	url_trailer := c.FormValue("url_trailer")
 
-// 	conv_id, err := strconv.Atoi(id)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+	if status != "READY" && status != "COMINGSOON" {
+		return c.JSON(http.StatusBadRequest, map[string]string{"message": "Status only READY or COMINGSOON"})
+	}
 
-// 	result, err := models.UpdateUsers(conv_id, name, address, telp)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+	newPrice, _ := strconv.Atoi(price)
 
-// 	return c.JSON(http.StatusOK, result)
+	result, err := models.UpdateShow(newPrice, id, bioskop_id, name, show_date, show_time, status, url_trailer, url_image)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err.Error())
+	}
 
-// }
+	return c.JSON(http.StatusOK, result)
 
-// func DeleteUsers(c echo.Context) error {
-// 	id := c.Param("id")
+}
 
-// 	conv_id, err := strconv.Atoi(id)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+func DeleteShow(c echo.Context) error {
+	id := c.Param("id")
 
-// 	result, err := models.DeleteUsers(conv_id)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+	result, err := models.DeleteShow(id)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err.Error())
+	}
 
-// 	return c.JSON(http.StatusOK, result)
+	return c.JSON(http.StatusOK, result)
 
-// }
+}
 
-// func DetailUsers(c echo.Context) error {
-// 	id := c.Param("id")
+func DetailShow(c echo.Context) error {
+	id := c.Param("id")
 
-// 	conv_id, err := strconv.Atoi(id)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+	result, err := models.DetailShow(id)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err.Error())
+	}
 
-// 	result, err := models.DetailUsers(conv_id)
-// 	if err != nil {
-// 		return c.JSON(http.StatusInternalServerError, err.Error())
-// 	}
+	return c.JSON(http.StatusOK, result)
 
-// 	return c.JSON(http.StatusOK, result)
-
-// }
+}

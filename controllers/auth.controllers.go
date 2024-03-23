@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"backend-test-mkp/helpers"
 	"backend-test-mkp/models"
 	"net/http"
 	"time"
@@ -9,14 +8,6 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/labstack/echo/v4"
 )
-
-func GenerateHashPassword(c echo.Context) error {
-	password := c.Param("password")
-
-	hash, _ := helpers.HashPassword(password)
-
-	return c.JSON(http.StatusOK, hash)
-}
 
 func Login(c echo.Context) error {
 	email := c.FormValue("email")
